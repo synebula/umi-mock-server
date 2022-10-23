@@ -6,10 +6,10 @@ MAINTAINER alex <reizero@live.com>
 WORKDIR /app
 
 COPY package.json ./
-COPY lib ./lib
 COPY node_modules ./node_modules
+COPY lib ./lib
 
 #暴露3000端口
 EXPOSE 3000
 
-ENTRYPOINT ["npm","serve"]
+ENTRYPOINT ["npm", "run", "serve"]

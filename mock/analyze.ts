@@ -1,18 +1,9 @@
-import {
-  devices,
-  finance,
-  messages,
-  payments,
-  persons,
-  shoppings,
-  trackers as tracks,
-  transfers,
-} from "./data";
+import { devices, finance, messages, payments, persons, shoppings, trackers as tracks, transfers } from './data';
 
 export default {
-  "GET /api/search": (req: any, res: any) => {
-    let data: any[] = [];
-    if (req.query.key === "18899659965") data.push(persons[0]);
+  'GET /api/search': (req: any, res: any) => {
+    let data = [];
+    if (req.query.key === '18899659965') data.push(persons[0]);
     else data = persons.map((p) => ({ ...p, name: p.name + req.query.key }));
     if (req)
       res.json({
@@ -26,7 +17,7 @@ export default {
         status: 200,
       });
   },
-  "GET /api/analyze/:id": (req: any, res: any) => {
+  'GET /api/analyze/:id': (req: any, res: any) => {
     const id = req.params.id;
     const data = persons.filter((p) => p.id === id).pop();
     if (req)
@@ -37,7 +28,7 @@ export default {
       });
   },
 
-  "GET /api/analyze/:id/devices": (req: any, res: any) => {
+  'GET /api/analyze/:id/devices': (req: any, res: any) => {
     const id = req.params.id;
     const data = devices.filter((d) => d.owner.toString() === id);
     if (req)
@@ -48,7 +39,7 @@ export default {
       });
   },
 
-  "GET /api/analyze/:id/tracks": (req: any, res: any) => {
+  'GET /api/analyze/:id/tracks': (req: any, res: any) => {
     const id = req.params.id;
     const data = tracks.filter((d) => d.owner.toString() === id);
     if (req)
@@ -59,7 +50,7 @@ export default {
       });
   },
 
-  "GET /api/analyze/:id/messages": (req: any, res: any) => {
+  'GET /api/analyze/:id/messages': (req: any, res: any) => {
     const id = req.params.id;
     const data = messages.filter((m) => m.owner.toString() === id);
     if (req)
@@ -70,7 +61,7 @@ export default {
       });
   },
 
-  "GET /api/analyze/:id/shoppings": (req: any, res: any) => {
+  'GET /api/analyze/:id/shoppings': (req: any, res: any) => {
     const id = req.params.id;
     const data = shoppings.filter((d) => d.owner.toString() === id);
     if (req)
@@ -81,7 +72,7 @@ export default {
       });
   },
 
-  "GET /api/analyze/:id/finance": (req: any, res: any) => {
+  'GET /api/analyze/:id/finance': (req: any, res: any) => {
     const id = req.params.id;
     const data = finance.filter((d) => d.owner.toString() === id);
     if (req)
@@ -92,7 +83,7 @@ export default {
       });
   },
 
-  "GET /api/analyze/:id/payments": (req: any, res: any) => {
+  'GET /api/analyze/:id/payments': (req: any, res: any) => {
     const id = req.params.id;
     const start = req.query.start;
     const end = req.query.end;
@@ -111,7 +102,7 @@ export default {
       });
   },
 
-  "GET /api/analyze/:id/transfers": (req: any, res: any) => {
+  'GET /api/analyze/:id/transfers': (req: any, res: any) => {
     const id = req.params.id;
     const start = req.query.start;
     const end = req.query.end;
