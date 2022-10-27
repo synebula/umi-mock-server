@@ -1,4 +1,3 @@
 *
 !lib
-!node_modules
-!package.json
+!package-pro.json

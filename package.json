@@ -8,7 +8,7 @@
     "start": "npm run build && node ./lib/app.js",
     "serve": "node ./lib/app.js",
     "build": "rm -rf lib && tsc --outDir ./lib",
-    "docker": "npm run build && docker build -t com.synebula/$npm_package_name:$npm_package_version ."
+    "docker": "npm run build && docker build -t synebula/$npm_package_name:$npm_package_version ."
   },
   "dependencies": {
     "express": "^4.18.2"
